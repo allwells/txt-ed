@@ -10,19 +10,26 @@
   </head>
   <body>
     <div class="title-bar">
-      <span class="document-name">tutorial.txt</span>
+      <div class="doc-title-bar">
+        <div class="app-icon">
+          <img src="icons/app-icon.svg" width="30" height="30" alt="app-icon" />
+        </div>
+        <span class="document-name">
+          <span id="document_name"></span>Txt-Ed
+        </span>
+      </div>
       <div class="menu-section">
-        <button>
+        <button id="open_document">
           <img src="icons/open.svg" width="25" height="25" alt="open" />
         </button>
-        <button>
+        <button id="create_document">
           <img src="icons/create.svg" width="25" height="25" alt="create" />
         </button>
       </div>
     </div>
 
     <main>
-      <textarea></textarea>
+      <textarea id="editor"></textarea>
     </main>
   </body>
 </html>
