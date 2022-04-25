@@ -1,0 +1,24 @@
+{
+  "name": "txt-ed",
+  "version": "1.0.0",
+  "description": "Simple text editor built with electron.js",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allwells/txt-ed.git"
+  },
+  "author": "Allwell Onen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allwells/txt-ed/issues"
+  },
+  "homepage": "https://github.com/allwells/txt-ed#readme",
+  "devDependencies": {
+    "electron": "^18.1.0",
+    "electron-reloader": "^1.2.3"
+  }
+}

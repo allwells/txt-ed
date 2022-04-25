@@ -1,0 +1,91 @@
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  border: 1px solid #777;
+  background-color: #292d3e;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  cursor: default;
+  background-color: #7773;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #393d51;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  visibility: visible;
+  background-color: #888;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #292d3e;
+}
+
+.title-bar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  -webkit-app-region: drag;
+  justify-content: flex-end;
+  background-color: #292d3e;
+  box-shadow: 0 1px 5px #0005;
+}
+
+.title-bar * {
+  cursor: default;
+}
+
+.title-bar span {
+  color: linen;
+}
+
+.title-bar .document-name,
+.title-bar .menu-section {
+  margin-right: 10px;
+}
+
+.title-bar .menu-section button {
+  border: none;
+  color: linen;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 0.3rem 0.4rem;
+  transition-duration: 0.4s;
+  background-color: transparent;
+}
+
+.title-bar .menu-section button:hover {
+  background-color: #5554;
+}
+
+main {
+  flex: 1;
+}
+
+main textarea {
+  width: 100%;
+  border: none;
+  resize: none;
+  padding: 10px;
+  outline: none;
+  color: linen;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 90vh;
+  font-family: monospace;
+  background-color: transparent;
+}
