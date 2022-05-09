@@ -19,6 +19,7 @@
   "homepage": "https://github.com/allwells/txt-ed#readme",
   "devDependencies": {
     "electron": "^18.1.0",
+    "electron-builder": "^23.0.3",
     "electron-reloader": "^1.2.3"
   }
 }

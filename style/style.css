@@ -9,7 +9,6 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  /* border: 1px solid #777; */
   background-color: #292d3e;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -69,8 +68,8 @@ body {
   display: flex;
   padding: 0 20px;
   align-items: center;
-  -webkit-app-region: drag;
   justify-content: space-between;
+  -webkit-app-region: drag !important;
 }
 
 .title-bar .menu-section {

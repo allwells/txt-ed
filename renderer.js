@@ -17,8 +17,11 @@ window.addEventListener("DOMContentLoaded", () => {
     evt.editor.focus();
   };
 
-  evt.editor.addEventListener("input", (event) => {
-    ipcRenderer.send("file-updated", event.target.value);
+  evt.editor.addEventListener("keydown", (event) => {
+    if (event.ctrlKey && event.key === "s") {
+      event.preventDefault();
+      ipcRenderer.send("file-updated", event.target.value);
+    }
   });
 
   evt.openDocumentBtn.addEventListener("click", () => {

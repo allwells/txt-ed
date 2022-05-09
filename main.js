@@ -30,11 +30,12 @@ const ext = [
 
 let mainWindow;
 let openedFilePath;
+
 const handleError = () => {
   new Notification({
-    title: "Error",
-    body: "Something went wrong :(",
-  });
+    title: "❌ Error",
+    body: "Something went wrong 😢",
+  }).show();
 };
 
 const createWindow = () => {
@@ -48,6 +49,7 @@ const createWindow = () => {
     },
   });
 
+  mainWindow.webContents.openDevTools();
   mainWindow.loadFile("index.html");
 
   const menuTemplate = [
@@ -91,7 +93,6 @@ ipcMain.on("open-document-triggered", () => {
 
       fs.readFile(filePath, "utf8", (error, content) => {
         if (error) {
-          // console.log("open-document-triggered", error);
           handleError();
         } else {
           openedFilePath = filePath;
@@ -101,20 +102,14 @@ ipcMain.on("open-document-triggered", () => {
     });
 });
 
-ipcMain.on("create-document-triggered", () => {
+ipcMain.on("create-document-triggered", (_, data) => {
   dialog
     .showSaveDialog(mainWindow, {
-      filters: [
-        {
-          name: "Files",
-          extensions: ext,
-        },
-      ],
+      filters: [{ name: "Files", extensions: ext }],
     })
     .then(({ filePath }) => {
-      fs.writeFile(filePath, "", (error) => {
+      fs.writeFile(filePath, data, (error) => {
         if (error) {
-          // console.log("create-document-triggered", error);
           handleError();
         } else {
           openedFilePath = filePath;
@@ -127,7 +122,6 @@ ipcMain.on("create-document-triggered", () => {
 ipcMain.on("file-updated", (_, editorContent) => {
   fs.writeFile(openedFilePath, editorContent, (error) => {
     if (error) {
-      // console.log("file-updated", error);
       handleError();
     }
   });
