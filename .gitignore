@@ -1,2 +1,4 @@
 node_modules/
 newfile.txt
+dist/
+electron-builder.json

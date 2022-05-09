@@ -6,9 +6,16 @@ const {
   Notification,
   Menu,
 } = require("electron");
-require("electron-reloader")(module);
 const path = require("path");
 const fs = require("fs");
+
+const isDevEnv = process.env.NODE_ENV === "development";
+
+if (isDevEnv) {
+  try {
+    require("electron-reloader")(module);
+  } catch {}
+}
 
 const ext = [
   "txt",
@@ -49,7 +56,10 @@ const createWindow = () => {
     },
   });
 
-  mainWindow.webContents.openDevTools();
+  if (isDevEnv) {
+    mainWindow.webContents.openDevTools();
+  }
+
   mainWindow.loadFile("index.html");
 
   const menuTemplate = [

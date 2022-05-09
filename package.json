@@ -2,9 +2,17 @@
   "name": "txt-ed",
   "version": "1.0.0",
   "description": "Simple text editor built with electron.js",
+  "build": {
+    "appId": "com.texteditor.app"
+  },
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "NODE_ENV=development electron .",
+    "app:dist": "electron-builder",
+    "app:dir": "electron-builder --dir",
+    "build:mac": "electron-builder build --mac --x64",
+    "build:win": "electron-builder build --win --x64",
+    "build:linux": "electron-builder --linux --x64",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
